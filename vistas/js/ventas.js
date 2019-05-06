@@ -619,7 +619,83 @@ $(".btnEditarVenta").click(function(){
 
 })
 
+/*===============================================================================================================================
+=            FUNCIÓN PARA DESACTIVAR LOS BOTONES AGREGAR CUANDO EL PRODUCTO YA HABÍA SIDO SELECCIONADO EN LA CARPETA            =
+===============================================================================================================================*/
 
+function quitarAgregarProducto(){
 
+	// Capturamos todos los id de productos que fueron elegidos en la venta
+	var idProductos = $(".quitarProducto");
 
+	// Capturamos todos los botones de agregar que aparecen en la tabla
+	var botonesTabla = $(".tablaVentas tbody button.agregarProducto");
+
+	// Recorremos en un ciclo for para obtener los diferentes idProductos que fueron agregados a la venta
+	for (var i = 0; i < idProductos.length; i++) {
+		
+		// Capturamos los id de los productos agregados a la venta
+		var boton = $(idProductos[i]).attr("idProducto");
+
+		// Hacemos un recorrido por la tabla que aparece para desactivar los botones de agregar
+		for (var j = 0; j < botonesTabla.length; j++) {
+			
+			if ($(botonesTabla[j]).attr("idProducto") == boton) {
+
+				$(botonesTabla[j]).removeClass("btn-primary agregarProducto");
+				$(botonesTabla[j]).addClass("btn-default");
+
+			}
+
+		}
+
+	}
+
+}
+
+/*==================================================================================================
+=            CADA VEZ QUE CARGUE LA TABLA CUANDO NAVEGUEMOS EN ELLA EJECUTAR LA FUNCIÓN            =
+==================================================================================================*/
+$(".tablaVentas").on("draw.dt", function(){
+	quitarAgregarProducto();
+})
+
+/*====================================
+=            BORRAR VENTA            =
+====================================*/
+
+$(".tablas").on("click", ".btnEliminarVenta", function(){
+
+  var idVenta = $(this).attr("idVenta");
+
+  swal({
+        title: '¿Está seguro de borrar la venta?',
+        text: "Si no está seguro puede cancelar la acción",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, borrar'
+      }).then(function(result){
+        if (result.value) {
+          
+            window.location = "index.php?ruta=ventas&idVenta="+idVenta;
+        }
+
+  })
+
+});
+
+/*======================================
+=            IMPRIMIR VENTA            =
+======================================*/
+
+$(".tablas").on("click", ".btnImprimirFactura", function(){
+
+	var codigoVenta = $(this).attr("codigoVenta");
+
+	window.open("extensiones/tcpdf/pdf/factura.php?codigo="+codigoVenta, "_blank");
+
+})
 

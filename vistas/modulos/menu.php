@@ -59,12 +59,12 @@
 				</a>
 			</li>
 
-			<li>
+			<!-- <li>
 				<a href="proveedores">
 					<i class="fa fa-truck"></i>
 					<span>Proveedores</span>
 				</a>
-			</li>
+			</li> -->
 
 			<li class="treeview">
 				

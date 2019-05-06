@@ -93,7 +93,10 @@
                   <td>
                     <div class="btn-group">
                       
-                      <button class="btn btn-info">
+                      <button 
+                        class="btn btn-info btnImprimirFactura"
+                        codigoVenta="'.$value["codigo"].'"
+                      >
                         <i class="fa fa-print"></i>
                       </button>
                       
@@ -104,7 +107,11 @@
                         <i class="fa fa-pencil"></i>
                       </button>
 
-                      <button class="btn btn-danger">
+                      <button
+                        class="btn btn-danger btnEliminarVenta"
+                        idVenta="'.$value["id"].'"
+
+                      >
                         <i class="fa fa-times"></i>
                       </button>
 
@@ -119,6 +126,13 @@
           </tbody>
 
         </table>
+
+        <?php
+
+          $eliminarVenta = new ControladorVentas();
+          $eliminarVenta -> ctrEliminarVenta();
+
+        ?>
 
       </div>
       

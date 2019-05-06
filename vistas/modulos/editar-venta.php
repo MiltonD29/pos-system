@@ -256,10 +256,10 @@
                               <input 
                                 type="text"
                                 class="form-control input-lg" 
-                                id="nuevoTotalVenta" 
+                                id="nuevoTotalVenta"
                                 name="nuevoTotalVenta" 
-                                total=""
-                                value="<?php echo $venta["total"]; ?>" 
+                                total="<?php echo $venta["neto"]; ?>"
+                                value="<?php echo $venta["total"]; ?>"
                                 placeholder="0" 
                                 required 
                               >
