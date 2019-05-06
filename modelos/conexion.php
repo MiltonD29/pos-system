@@ -4,7 +4,7 @@ class Conexion {
 
 	static public function conectar(){
 
-		$link = new PDO("mysql:host=localhost;dbname=pos","root","");
+		$link = new PDO("mysql:host=localhost;dbname=pos-omark","root","");
 
 		$link -> exec("set names utf8");
 
