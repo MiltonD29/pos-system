@@ -45,6 +45,9 @@
 
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
+
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="vistas/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!--====  End of PLUGINS DE CSS  ====-->
 
   <!--===========================================
@@ -84,6 +87,10 @@
 
   <!-- jQuery Number -->
   <script src="vistas/plugins/jqueryNumber/jquerynumber.min.js"></script>
+
+  <!-- daterangepicker -->
+  <script src="vistas/bower_components/moment/min/moment.min.js"></script>
+  <script src="vistas/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
   
   <!--====  End of PLUGINS DE JAVASCRIPT  ====-->
 
