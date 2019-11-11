@@ -7,33 +7,23 @@ class ModeloProductos {
 	/*=========================================
 	=            MOSTRAR PRODUCTOS            =
 	=========================================*/
-	static public function mdlMostrarProductos($tabla, $item, $valor){
-
-		if($item != null){
-
+	static public function mdlMostrarProductos($tabla, $item, $valor, $orden){
+		if ($item != null) {
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
+			$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+			$stmt->execute();
 
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+			return $stmt->fetch();
+		} else {
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
+			$stmt->execute();
 
-			$stmt -> execute();
-
-			return $stmt -> fetch();
-
-		}else{
-
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
-
-			$stmt -> execute();
-
-			return $stmt -> fetchAll();
-
+			return $stmt->fetchAll();
 		}
 
-		$stmt -> close();
-
+		$stmt->close();
 		$stmt = null;
-
-	}	
+	}
 
 	/*=============================================
 	=            REGISTRO DE PRODUCTOS            =
@@ -145,7 +135,21 @@ class ModeloProductos {
 
 	}
 	
-	
-	
+	/*=============================================
+	MOSTRAR SUMA VENTAS
+	=============================================*/	
+
+	static public function mdlMostrarSumaVentas($tabla){
+
+		$stmt = Conexion::conectar()->prepare("SELECT SUM(ventas) as total FROM $tabla");
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		$stmt -> close();
+
+		$stmt = null;
+	}
 	
 }

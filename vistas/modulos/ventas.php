@@ -28,7 +28,7 @@
         <button type="button" class="btn btn-default pull-right" id="daterange-btn">
           <span>
             <i class="fa fa-calendar"></i>
-            Rago de fecha
+            Rango de fecha
           </span>
           <i class="fa fa-caret-down"></i>
         </button>

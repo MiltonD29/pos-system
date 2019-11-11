@@ -48,6 +48,10 @@
 
   <!-- Daterange picker -->
   <link rel="stylesheet" href="vistas/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="vistas/bower_components/morris.js/morris.css">
+
   <!--====  End of PLUGINS DE CSS  ====-->
 
   <!--===========================================
@@ -91,6 +95,13 @@
   <!-- daterangepicker -->
   <script src="vistas/bower_components/moment/min/moment.min.js"></script>
   <script src="vistas/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+  <!-- Morris.js charts http://morrisjs.github.io/morris.js/-->
+  <script src="vistas/bower_components/raphael/raphael.min.js"></script>
+  <script src="vistas/bower_components/morris.js/morris.min.js"></script>
+
+  <!-- ChartJS http://www.chartjs.org/-->
+  <script src="vistas/bower_components/chart.js/Chart.js"></script>
   
   <!--====  End of PLUGINS DE JAVASCRIPT  ====-->
 
@@ -164,6 +175,7 @@
 <script src="vistas/js/clientes.js"></script>
 <script src="vistas/js/proveedores.js"></script>
 <script src="vistas/js/ventas.js"></script>
+<script src="vistas/js/reportes.js"></script>
 
 </body>
 
